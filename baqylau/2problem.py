@@ -16,9 +16,8 @@ while current:
     matrix.append(current.value)  
     current = current.next    
 
-n = len(matrix) 
 i = 0
-while i < n:
+while i < len(matrix):
     if matrix[i] == a:
         matrix.pop(i)
     else:
