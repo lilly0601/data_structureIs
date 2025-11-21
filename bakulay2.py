@@ -10,13 +10,12 @@ head.next.next = Node(value = 3)
 head.next.next.next = Node(value = 4)
 head.next.next.next.next = Node(value = 5)
 
-positions =[2, 4]
 current = head
 product = 1
 pos = 1
 
 while current is not None:
-    if pos in positions:
+    if pos % 2 == 1:
         product *= current.value
     current = current.next
     pos += 1
