@@ -26,7 +26,3 @@ for(key, value),(key2, value2) in zip(t1.items(), t2.items()):
         isom = False
         
 print(isom)
-        
-        
-
-
