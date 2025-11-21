@@ -1,3 +1,4 @@
+# 5 нұсқа 2 есеп
 class Node:
     def __init__(self, value = 0, next = None):
         self.value = value
