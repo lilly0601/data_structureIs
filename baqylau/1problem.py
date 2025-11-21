@@ -1,4 +1,4 @@
-words = ["live", "evileee"]
+words = ["live", "evil"]
 
 hash_table = {}
 is_anagramma = False
@@ -15,5 +15,5 @@ while i < len(words):
         hash_table[key] = word
     
     i += 1
-
+print(hash_table)
 print(is_anagramma)
