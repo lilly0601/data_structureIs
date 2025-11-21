@@ -18,11 +18,11 @@ while current:
 
 n = len(matrix) 
 i = 0
-while i < n:
+while i < len(matrix):
     if matrix[i] == a:
-        matrix.pop(i) 
-        n -= 1
-        break
+        matrix.pop(i)
+    else:
+        i += 1
 
 # for i in range(n+1):
 #     if a == matrix[i]:
