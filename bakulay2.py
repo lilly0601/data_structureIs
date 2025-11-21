@@ -15,7 +15,7 @@ product = 1
 pos = 1
 
 while current is not None:
-    if pos % 2 == 1:
+    if pos % 2 == 1: 
         product *= current.value
     current = current.next
     pos += 1
