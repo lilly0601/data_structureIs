@@ -1,9 +1,11 @@
-words = ["live", "evil"]
+words = ["live", "evileee"]
 
 hash_table = {}
 is_anagramma = False
 
-for word in words:
+i = 0
+while i < len(words):
+    word = words[i]
     key = tuple(sorted(word))
     
     if key in hash_table:
@@ -11,5 +13,7 @@ for word in words:
         break
     else:
         hash_table[key] = word
+    
+    i += 1
 
 print(is_anagramma)
