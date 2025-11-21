@@ -1,3 +1,4 @@
+#4нұсқа
 A = [1, 3, 6, 7, 9]
 B = [3, 10, 5, 7, 15]
 k = int(input("k:"))
@@ -15,6 +16,7 @@ for x in B:
 
 result = {}
 for num, (a,b) in hash.items():
+    
     result[num] = min(a,b) * k + abs(a-b)
 
 print(result)
