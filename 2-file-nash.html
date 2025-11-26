@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Task 2 - Interactive Command</title>
+  <style>
+    body {font-family: Arial; line-height: 1.5; padding: 16px;}
+    input, button {padding: 6px; margin: 4px;}
+    pre {background: #f3f3f3; padding: 12px; border-radius: 6px;}
+  </style>
+</head>
+<body>
+  <h2>Task 2 — Интерактивный ввод кода</h2>
+  <div>
+    <label>Введите код команды: 
+      <input id="cmdInput" type="number" value="1">
+    </label>
+    <button id="runBtn">Проверить</button>
+  </div>
+  <div id="output" style="margin-top:12px"></div>
+
+  <script>
+class TCommand {
+  constructor(){ this.NameCommand = 0; }
+  GetFullName(){
+    switch(this.NameCommand){
+      case -1: return "ҚАТЕ: Пәрмен коды жарамсыз";
+      case 1: return "КІРІС ҰЯШЫҚТАН АЛУ";
+      case 2: return "ҰЯШЫҚТАН ШЫҒЫС ҰЯШЫҚҚА ЖІБЕРУ";
+      case 4: return "РЕЗЕРВТЕУ";
+      case 6: return "НӨЛ";
+      case 20: return "ПӘРМЕНДІ ШЫҒАРУДЫ ТОЛЫҚТАҢЫЗ";
+      default: return "ҚАТЕ: Белгісіз пәрмен коды";
+    }
+  }
+}
+
+class TCommandTester {
+  constructor(){
+    this.OUT = new TCommand();
+  }
+
+  runOne(cmd){
+    this.OUT.NameCommand = cmd;
+    const res = this.OUT.GetFullName();
+    this.render(cmd + " :  " +res);
+  }
+
+  render(text){
+    const out = document.getElementById('output');
+    const pre = document.createElement('pre');
+    pre.textContent = text;
+    out.innerHTML = '';
+    out.appendChild(pre);
+  }
+}
+
+const tester = new TCommandTester();
+
+document.getElementById('runBtn').addEventListener('click', ()=>{
+  const v = parseInt(document.getElementById('cmdInput').value, 10);
+  tester.runOne(v);
+});
+  </script>
+</body>
+</html>

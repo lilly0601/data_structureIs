@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Task 1 - TCommand Test</title>
+  <style>
+    body {font-family: Arial; line-height: 1.5; padding: 16px;}
+    pre {background: #f3f3f3; padding: 12px; border-radius: 6px;}
+  </style>
+</head>
+<body>
+  <h2>Task 1 — Тест 1</h2>
+  <div id="output"></div>
+
+  <script>
+class TCommand {
+  constructor(){ this.NameCommand = 0; }
+  GetFullName(){
+    switch(this.NameCommand){
+      case -1: return "ҚАТЕ: Пәрмен коды жарамсыз";
+      case 1: return "КІРІС ҰЯШЫҚТАН АЛУ";
+      case 2: return "ҰЯШЫҚТАН ШЫҒЫС ҰЯШЫҚҚА ЖІБЕРУ";
+      case 4: return "РЕЗЕРВТЕУ";
+      case 6: return "НӨЛ";
+      case 20: return "ПӘРМЕНДІ ШЫҒАРУДЫ ТОЛЫҚТАҢЫЗ";
+      default: return "ҚАТЕ: Белгісіз пәрмен коды";
+    }
+  }
+}
+
+class TCommandTester {
+  constructor(){
+    this.OUT = new TCommand();
+    this.log = [];
+    this.run();
+    this.render();
+  }
+
+  logMessage(m){ this.log.push(m); }
+
+  run(){
+    const commands = [-1, 1, 2, 4, 6, 20];
+    for(const c of commands){
+      this.OUT.NameCommand = c;
+      const res = this.OUT.GetFullName();
+      this.logMessage(c + " : " +res);
+    }
+  }
+
+  render(){
+    const out = document.getElementById('output');
+    const pre = document.createElement('pre');
+    pre.textContent = this.log.join("\n");
+    out.appendChild(pre);
+
+    const a = document.createElement('a');
+    a.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(this.log.join("\n"));
+    a.download = 'task1_log.txt';
+    a.textContent = 'Скачать лог (task1_log.txt)';
+    a.style.display = 'inline-block';
+    a.style.marginTop = '8px';
+    out.appendChild(a);
+  }
+}
+
+new TCommandTester();
+  </script>
+</body>
+</html>
